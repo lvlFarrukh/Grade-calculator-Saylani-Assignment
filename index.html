@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Percentege Calculator</title>
+</head>
+<body style="text-align: center;">
+    <h1>Percentege Calculator</h1>
+    <br>
+    <input type="number" id="marks" onchange="reset()">
+    <br>
+    <h4 id="gradeShowcase"></h4>
+    <br>
+    <input type="button" value="Calculate Grade" onclick="calculateGrade()">
+    <br>
+
+    <script>
+        const calculateGrade = () => {
+            const marks = Number(document.getElementById('marks').value);
+            console.log(marks)
+            let grade = "";
+            if (marks >= 80) {
+                grade = 'A+';
+            }
+            else if (marks < 80 && marks >= 70) {
+                grade = 'A';
+            }
+            else if (marks < 70 && marks >= 60) {
+                grade = 'B';
+            }
+            else if (marks < 60 && marks >= 50) {
+                grade = 'C';
+            }
+            else if (marks < 50) {
+                grade = 'Fail';
+            }
+
+            document.getElementById('gradeShowcase').innerHTML = `Grade: ${grade}`;
+        }
+
+        const reset = () => {
+            document.getElementById('gradeShowcase').innerHTML = "";
+        }
+    </script>
+</body>
+</html>
